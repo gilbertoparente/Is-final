@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,12 +76,16 @@ WSGI_APPLICATION = 'rest_api_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = { 
+    'default': { 
+    'ENGINE': 'django_pg8000',  
+    'NAME': os.getenv('DBNAME', 'mydatabase'), 
+    'USER': os.getenv('DBUSERNAME', 'myuser'), 
+    'PASSWORD': os.getenv('DBPASSWORD', 'mypassword'), 
+    'HOST': os.getenv('DBHOST', 'localhost'), 
+    'PORT': os.getenv('DBPORT', '5432') 
+    } 
+} 
 
 
 # Password validation
@@ -124,3 +129,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+GRPC_HOST = os.getenv('GRPC_HOST', 'localhost') 
+GRPC_PORT = os.getenv('GRPC_PORT', '50051') 

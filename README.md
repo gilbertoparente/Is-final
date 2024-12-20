@@ -3,7 +3,8 @@
 
 ### Em falta: 
 corrigir o postman, como e sem BD
+falta testar ponto 16
+Testar o novo endpoint no Postman. 
 
-Ponto 14. 
-Dentro da pasta “rest_api_server” alterar o ficheiro “urls.py”, de forma a incluir as
-rotas previamente definidas na raiz do projeto
+### Erros:
+- ponto 15 

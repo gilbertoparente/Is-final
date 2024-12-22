@@ -15,11 +15,11 @@ services:
       - DBUSERNAME=myuser 
       - DBPASSWORD=mypassword 
       - DBHOST=db 
-      - DBPORT=5432 
+      - DBPORT=5432
     depends_on: 
       - db
   rest-api-server: 
-    build: ./rest_api_server 
+    build: ./rest_api_server
     container_name: rest_api_server 
     ports: 
       - "8000:8000" 
@@ -31,7 +31,7 @@ services:
       - DBUSERNAME=myuser 
       - DBPASSWORD=mypassword 
       - DBHOST=db 
-      - DBPORT=5432 
+      - DBPORT=5432
     depends_on: 
       - db 
       - grpc-server 
@@ -44,7 +44,7 @@ services:
       POSTGRES_PASSWORD: mypassword 
       POSTGRES_DB: mydatabase 
     ports: 
-      - "5432:5432" 
+      - "5438:5432" 
     volumes: 
       - pgdata:/var/lib/postgresql/data 
  
